@@ -15,11 +15,17 @@ Getting Started
 ---------------
 
 ``` $ git clone git://github.com/eurekaoverdrive/mazuma.git
+
 ``` $ gem install bundler
+
 ``` $ bundle install
+
 ``` $ git init .
+
 ``` $ git commit -m "Initial commit"
+
 ``` $ heroku create yourappname
+
 ``` $ git push heroku master
 
 Setting Global and Environment Variables
@@ -32,6 +38,7 @@ Once you've set up accounts at [Stripe](http://stripe.com) and [Mailgun](http://
 **Set Stripe.com Keys**
 
 ``` $ heroku config:add STRIPE_PUBLIC_KEY=t0psecretkey
+
 ``` $ heroku config:add STRIPE_PRIVATE_KEY=t0psecretkey
 
 **Set Mailgun.net Keys**
@@ -56,7 +63,7 @@ The included Rakefile contains two Rake tasks that make it easy to send broadcas
 
 Add your email message to <code>/email/messages</code>, and upload the fie to Heroku by running <code>$ git push heroku master</code> after adding and committing the file to your repo. Text or HTML files are supported. I recommend using a <code>YEAR-MONTH-DAY-filename.extention</code> naming scheme to make your messages easy to find later.
 
-Add file attachments to <code>/email/attachments.</code>.
+Add file attachments to <code>/email/attachments</code>.
 
 ### Step 2: Preview Your Email
 
