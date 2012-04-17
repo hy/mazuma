@@ -5,7 +5,7 @@ Mazuma - a sales app built on Heroku, Stripe, and Mailgun
 
 **Mazuma is a simple sales application written in Ruby.** It uses [Sinatra](http://www.sinatrarb.com/) and [ERB](http://ruby-doc.org/stdlib-1.9.3/libdoc/erb/rdoc/ERB.html) templates to produce an attractive two-column web application suitable for selling a product, service, or subscription online.
 
-Mazuma is designed for easy deployment to [Heroku](http://heroku.com). [Stripe](http://stripe.com) is used to charge the user's credit card, and [Mailgun](http://mailgun.net) is used to send the user a receipt for successful transactions, as well as send all purchasers update emails via a simple command line interface. [Mailcheck.js](https://github.com/Kicksend/mailcheck) automatically catches common email typos.
+Mazuma is designed for easy deployment to [Heroku](http://heroku.com) Bamboo stack. [Stripe](http://stripe.com) is used to charge the user's credit card, and [Mailgun](http://mailgun.net) is used to send the user a receipt for successful transactions, as well as send all purchasers update emails via a simple command line interface. [Mailcheck.js](https://github.com/Kicksend/mailcheck) automatically catches common email typos.
 
 All pages in the application default to SSL via [rack-ssl-enforcer](https://github.com/tobmatth/rack-ssl-enforcer). Using an SSL connection allows you to securely transmit user credit card information to Stripe without storing it in your application, ensuring full PCI compliance. Piggyback SSL is available by default for apps on <code>subdomain.heroku.com</code> or <code>subdomain.herokuapp.com</code>, or inexpensively via Heroku's wildcard SSL add-on.
 
@@ -69,21 +69,23 @@ Add file attachments to <code>/email/attachments</code>.
 
 Use this command to send a preview email to the administrator email set in the <code>/config/globals.rb</code> file.
 
-    $ heroku run rake 'email:preview["Subject Line","2012-01-01-message.extention"]'
+    $ heroku rake 'email:preview["Subject Line","2012-01-01-message.extention"]'
 
 If you'd like to include an attachment, use this command:
 
-    $ heroku run rake 'email:preview["Subject Line","2012-01-01-message.extention","attachment.extention"]'
+    $ heroku rake 'email:preview["Subject Line","2012-01-01-message.extention","attachment.extention"]'
 
 ### Step 3: Send the Broadcast
 
 Use this command to send a broadcast email to the Mailgun list set in the <code>/config/globals.rb</code> file.
 
-    $ heroku run rake 'email:broadcast["Subject Line","2012-01-01-message.extention"]'
+    $ heroku rake 'email:broadcast["Subject Line","2012-01-01-message.extention"]'
 
 If you'd like to include an attachment, use this command:
 
-    $ heroku run rake 'email:broadcast["Subject Line","2012-01-01-message.extention","attachment.extention"]'
+    $ heroku rake 'email:broadcast["Subject Line","2012-01-01-message.extention","attachment.extention"]'
+    
+These commands change to <code>$ heroku run rake</code> if you deploy to Heroku's Cedar stack.
 
 Extending Mazuma
 ----------------
