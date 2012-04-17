@@ -1,5 +1,5 @@
-Mazuma - a simple sales app built on Heroku, Stripe, and Mailgun
-================================================================
+Mazuma - a sales app built on Heroku, Stripe, and Mailgun
+=========================================================
 
 ![Mazuma Screenshot](http://media.eurekaoverdrive.com/img/mazuma.png)
 
@@ -7,7 +7,7 @@ Mazuma - a simple sales app built on Heroku, Stripe, and Mailgun
 
 Mazuma is designed for easy deployment to [Heroku](http://heroku.com). [Stripe](http://stripe.com) is used to charge the user's credit card, and [Mailgun](http://mailgun.net) is used to send the user a receipt for successful transactions, as well as send all purchasers update emails via a simple command line interface. [Mailcheck.js](https://github.com/Kicksend/mailcheck) automatically catches common email typos.
 
-All pages in the application default to SSL via [rack-ssl-enforcer](https://github.com/tobmatth/rack-ssl-enforcer). Using an SSL connection allows you to securely transmit user credit card information to Stripe without storing it in your application, ensuring full PCI compliance. Piggyback SSL is available by default for apps on <code>*.heroku.com</code> or <code>*.heroku.com</code>, or inexpensively via Heroku's wildcard SSL add-on.
+All pages in the application default to SSL via [rack-ssl-enforcer](https://github.com/tobmatth/rack-ssl-enforcer). Using an SSL connection allows you to securely transmit user credit card information to Stripe without storing it in your application, ensuring full PCI compliance. Piggyback SSL is available by default for apps on <code>subdomain.heroku.com</code> or <code>subdomain.herokuapp.com</code>, or inexpensively via Heroku's wildcard SSL add-on.
 
 _("Mazuma" is the Yiddish word for money.)_
 
