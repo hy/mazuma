@@ -14,19 +14,19 @@ _("Mazuma" is the Yiddish word for money.)_
 Getting Started
 ---------------
 
-``` $ git clone git://github.com/eurekaoverdrive/mazuma.git
+    $ git clone git://github.com/eurekaoverdrive/mazuma.git
 
-``` $ gem install bundler
+    $ gem install bundler
 
-``` $ bundle install
+    $ bundle install
 
-``` $ git init .
+    $ git init .
 
-``` $ git commit -m "Initial commit"
+    $ git commit -m "Initial commit"
 
-``` $ heroku create yourappname
+    $ heroku create yourappname
 
-``` $ git push heroku master
+    $ git push heroku master
 
 Setting Global and Environment Variables
 ----------------------------------------
@@ -37,13 +37,13 @@ Once you've set up accounts at [Stripe](http://stripe.com) and [Mailgun](http://
 
 **Set Stripe.com Keys**
 
-``` $ heroku config:add STRIPE_PUBLIC_KEY=t0psecretkey
+    $ heroku config:add STRIPE_PUBLIC_KEY=t0psecretkey
 
-``` $ heroku config:add STRIPE_PRIVATE_KEY=t0psecretkey
+    $ heroku config:add STRIPE_PRIVATE_KEY=t0psecretkey
 
 **Set Mailgun.net Keys**
 
-``` $ heroku config:add MAILGUN_PRIVATE_KEY=t0psecretkey
+    $ heroku config:add MAILGUN_PRIVATE_KEY=t0psecretkey
 
 Changing Page Copy & Design
 ---------------------------
@@ -69,21 +69,21 @@ Add file attachments to <code>/email/attachments</code>.
 
 Use this command to send a preview email to the administrator email set in the <code>/config/globals.rb</code> file.
 
-``` $ heroku run rake 'email:preview["Subject Line","2012-01-01-message.extention"]'
+    $ heroku run rake 'email:preview["Subject Line","2012-01-01-message.extention"]'
 
 If you'd like to include an attachment, use this command:
 
-``` $ heroku run rake 'email:preview["Subject Line","2012-01-01-message.extention","attachment.extention"]'
+    $ heroku run rake 'email:preview["Subject Line","2012-01-01-message.extention","attachment.extention"]'
 
 ### Step 3: Send the Broadcast
 
 Use this command to send a broadcast email to the Mailgun list set in the <code>/config/globals.rb</code> file.
 
-``` $ heroku run rake 'email:broadcast["Subject Line","2012-01-01-message.extention"]'
+    $ heroku run rake 'email:broadcast["Subject Line","2012-01-01-message.extention"]'
 
 If you'd like to include an attachment, use this command:
 
-``` $ heroku run rake 'email:broadcast["Subject Line","2012-01-01-message.extention","attachment.extention"]'
+    $ heroku run rake 'email:broadcast["Subject Line","2012-01-01-message.extention","attachment.extention"]'
 
 Extending Mazuma
 ----------------
