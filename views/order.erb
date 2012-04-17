@@ -1,0 +1,152 @@
+<h2>Place Your Order (This page is secure.)</h2>
+
+<!-- Do not edit below this line unless you know what you're doing -->
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<!-- Mailcheck.js -->
+<script src="/js/jquery.mailcheck.min.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script>
+  $(function(){
+    // The domains to check for
+    var domains = ["yahoo.com","google.com","hotmail.com","gmail.com","me.com","aol.com","mac.com","live.com","comcast.net","googlemail.com","msn.com","qq.com","163.com","hotmail.fr","yahoo.fr","yahoo.com.tw","hotmail.it","sbcglobal.net","hotmail.co.uk","yahoo.co.uk","yahoo.es"];
+    
+    $('#email').blur(function() {
+      // Run the check
+      $('#email').mailcheck(domains, {
+        suggested: function(element, suggestion) {
+          // Offer up the suggestion
+          $('#did-you-mean a').html('Did you mean \<span>'+suggestion.full+'\</span>?');
+          // Then show it
+          $('#did-you-mean').slideDown();
+          // Bind the new full suggestion to fill in the form on clicking the suggestion
+          $('#did-you-mean a').on('click', function() {
+            $('#email').val(suggestion.full);
+            $('#did-you-mean').slideUp();
+          });
+        },
+        empty: function(element) {
+          // If no suggestion, hide the suggestion line
+          $('#did-you-mean').slideUp();
+        }
+      })
+    });
+  });
+</script>
+
+<!-- Stripe-->
+<script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+<script type="text/javascript">
+    // this identifies your website in the createToken call below
+    Stripe.setPublishableKey('<%= STRIPE_PUBLIC_KEY %>');
+
+    function stripeResponseHandler(status, response) {
+        if (response.error) {
+            // re-enable the submit button
+            $('.submit-button').removeAttr("disabled");
+            // show the errors on the form
+            $(".payment-errors").html(response.error.message);
+        } else {
+            var form$ = $("#payment-form");
+            // token contains id, last4, and card type
+            var token = response['id'];
+            // insert the token into the form so it gets submitted to the server
+            form$.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
+            // and submit
+            form$.get(0).submit();
+        }
+    }
+
+    $(document).ready(function() {
+        $("#payment-form").submit(function(event) {
+            // disable the submit button to prevent repeated clicks
+            $('.submit-button').attr("disabled", "disabled");
+            // createToken returns immediately - the supplied callback submits the form if there are no errors
+            Stripe.createToken({
+                number: $('.card-number').val(),
+                cvc: $('.card-cvc').val(),
+                exp_month: $('.card-expiry-month').val(),
+                exp_year: $('.card-expiry-year').val(),
+                name: $('.name').val(),
+                address_line1: $('.address_line1').val(),
+                address_line2: $('.address_line2').val(),
+                address_state: $('.address_state').val(),
+                address_zip: $('.address_zip').val(),
+                address_country: $('.address_country').val()
+            }, stripeResponseHandler);
+            return false; // submit from callback
+        });
+    });
+
+    if (window.location.protocol === 'file:') {
+        alert("stripe.js does not work when included in pages served over file:// URLs. Try serving this page over a webserver.");
+    }
+</script>
+<!-- Hide order button -->
+<script type="text/javascript"> 
+        $(document).ready(function(){ 
+        $('#order-button').hide(); 
+        }); 
+</script>
+<!-- Show form only if javascript is enabled -->
+<script>if (window.Stripe) $("#payment-form").show()</script>
+<noscript><p>JavaScript is required for this form.</p></noscript>
+<br />
+
+<form action="" method="POST" id="payment-form" class="well form-inline">
+  
+  <div class="form-row">
+    <h3>Contact Information</h3>
+    <input name="name" id="name" type="text" size="20" autocomplete="off" class="name span3 required" placeholder="Your Name (First and Last)">
+    <input name="company" id="company" type="text" size="20" autocomplete="off" class="company span3" placeholder="Company">
+  </div>
+  
+  <div class="form-row">
+    <input name="email" id="email" type="text" size="20" autocomplete="off" class="email span3 required" placeholder="Email">
+    <input name="phone" id="phone" type="text" size="20" autocomplete="off" class="phone span3 required" placeholder="Phone">
+    <div id="did-you-mean"><a></a></div>
+  </div>
+  
+  <br />
+
+  <div class="form-row">
+    <h3>Billing Address</h3>
+    <input name="address_line1" id="address_line1" type="text" size="20" autocomplete="off" class="address_line1 span3 required" placeholder="Address 1">
+    <input name="address_line2" id="address_line2"type="text" size="20" autocomplete="off" class="address_line2 span2" placeholder="Address 2">
+  </div>
+  
+  <div class="form-row">
+    <input name="address_city" id="address_city" type="text" size="20" autocomplete="off" class="address_city span3 required" placeholder="City">
+    <input name="address_state" id="address_state" type="text" size="5" autocomplete="off" class="address_state span1 required" placeholder="State">
+    <input name="address_zip" id="address_zip" type="text" size="5" autocomplete="off" class="address_zip span2 required" placeholder="ZIP Code">
+  </div>
+  
+  <div class="form-row">
+    <input name="address_country" id="address_country" type="text" size="10" autocomplete="off" class="address_country span2 required" placeholder="Country">
+  </div>
+  
+  <br />
+  
+  <div class="form-row">
+    <h3>Credit Card</h3>
+    <input type="text" size="20" autocomplete="off" class="card-number span3 stripe-sensitive required" placeholder="Card Number">
+    <input type="text" size="4" autocomplete="off" class="card-cvc span1 stripe-sensitive required" placeholder="CVC">
+  </div>
+  
+  <div class="form-row">
+    <input type="text" size="2" autocomplete="off" class="card-expiry-month span1 stripe-sensitive required" placeholder="MM">
+    <input type="text" size="4" autocomplete="off" class="card-expiry-year span1 stripe-sensitive required" placeholder="YYYY">
+  </div>
+  
+  <br />
+  
+  <div class="form-row">
+    <h3 class="pull-left">Total: <span class="total">$<%= dollarize(OFFER_PRICE) %> (USD)</span>&nbsp;&nbsp;</h3>
+    <button type="submit" class="btn btn-primary submit-button pull-right"><i class="icon-ok icon-white"></i>&nbsp;Place Your Order</button>
+    <span class="payment-errors"></span>
+    <br />
+  </div>
+  
+</form>

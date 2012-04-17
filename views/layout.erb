@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title><%= @title %></title>
+  <meta name="description" content="<%= SITE_DESCRIPTION %>" />
+  <meta name="keywords" content="<%= SITE_KEYWORDS %>" />
+  <meta name="author" content="<%= ADMIN_NAME %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/css/stylesheet.css" rel="stylesheet" />
+  <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700|Vollkorn:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>  
+  <div class="container">
+    <div class="content span12"><!-- Change to span8 offset1 for single column layout -->
+      <div class="row">
+        
+        <!-- Main -->
+        <div id="main" class="span8">
+          <h1 class="headline"><a href="<%= URL %>"><%= HEADLINE %></a></h1>
+          <h2 class="byline"><%= BYLINE %></h2>
+          <%= yield %>
+        
+          <hr>
+
+          <div id="footer">
+            <p><%= FOOTER_CONTACT %><br /><%= FOOTER_LINKS %></p>
+          </div>
+        
+        </div>
+        
+        <!-- Sidebar -->
+        <div id="sidebar" class="span3"><!-- Remove for single column layout -->
+          <h2>Sidebar</h2>
+          <br />
+          <p><strong>This is boilerplate text.</strong> You should remove this text and replace it with something else. You might include an image, a video, a description, a list of benefits, or a call to action. The possibilities are endless. The only limit... is yourself.</p>
+          <br />
+          <div id="order-button">
+          <p><a class="btn btn-large btn-primary" href="/order"><i class="icon-shopping-cart icon-white"></i> <strong>Order Now</strong></a></p>
+          </div><!-- order-button -->
+        </div><!-- sidebar -->
+      
+      </div><!-- row -->
+    
+    </div><!-- content -->
+  </div><!-- container -->
+  
+  <br />
+
+  <!-- Scripts go here -->
+	
+</body>
+</html>

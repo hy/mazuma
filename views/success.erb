@@ -1,0 +1,37 @@
+<script type="text/javascript"> 
+        $(document).ready(function(){ 
+        $('#order-button').hide(); 
+        }); 
+</script>
+
+<h2>Success! Your Order Has Been Placed.</h2>
+
+<p>You have successfully placed an order for <strong><%= OFFER_NAME %></strong>, via <%= URL %>.</p>
+
+<h3>Billing Information:</h3>
+
+<p>
+<%= @charge.card.name %><br />
+<%= params[:company] %><br />
+<%= @charge.card.address_line1 %><br />
+<%= @charge.card.address_line2 %><br />
+<%= params[:address_city] %>, <%= @charge.card.address_state %> <%= @charge.card.address_zip %>, <%= @charge.card.address_country %><br />
+<%= params[:phone] %><br />
+<%= params[:email] %><br />
+</p>
+
+<h3>Transaction Details:</strong></p></h3>
+
+<p>You have been charged <strong>$<%= dollarize(@charge.amount.to_s) %></strong> to your <strong><%= @charge.card.type %></strong> ending in <strong><%= @charge.card.last4 %></strong>.</p> 
+
+<p>The transaction ID is <strong><%= @charge.id %></strong>.</p>
+
+<p>You will receive delivery instructions via email at <strong><%= params[:email] %>.</strong></p>
+
+<p>Please print this receipt for your records.</p>
+
+<p>Thank you for your business!</p>
+
+<br />
+
+<a href="<%= URL %>" class="btn btn-primary btn-large">Continue to the main website...</a>
