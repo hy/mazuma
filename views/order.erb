@@ -1,6 +1,7 @@
 <h2>Place Your Order (This page is secure.)</h2>
 
 <!-- Do not edit below this line unless you know what you're doing -->
+<div id="order">
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -100,54 +101,70 @@
   
   <div class="form-row">
     <h3>Contact Information</h3>
+    <label class="span3">Your Name (First and Last)</label>
     <input name="name" id="name" type="text" size="20" autocomplete="off" class="name span3 required" placeholder="Your Name (First and Last)">
+    <label class="span3">Company</label>
     <input name="company" id="company" type="text" size="20" autocomplete="off" class="company span3" placeholder="Company">
   </div>
   
   <div class="form-row">
+    <label class="span3">Email</label>
     <input name="email" id="email" type="text" size="20" autocomplete="off" class="email span3 required" placeholder="Email">
+    <label class="span3">Phone</label>
     <input name="phone" id="phone" type="text" size="20" autocomplete="off" class="phone span3 required" placeholder="Phone">
     <div id="did-you-mean"><a></a></div>
   </div>
   
   <br />
-
+  
   <div class="form-row">
     <h3>Billing Address</h3>
+    <label class="span3">Address (line 1)</label>
     <input name="address_line1" id="address_line1" type="text" size="20" autocomplete="off" class="address_line1 span3 required" placeholder="Address 1">
-    <input name="address_line2" id="address_line2"type="text" size="20" autocomplete="off" class="address_line2 span2" placeholder="Address 2">
+    <label class="span3">Address (line 2)</label>
+    <input name="address_line2" id="address_line2"type="text" size="20" autocomplete="off" class="address_line2 span3" placeholder="Address 2">
   </div>
   
   <div class="form-row">
+    <label class="span3">City</label>
     <input name="address_city" id="address_city" type="text" size="20" autocomplete="off" class="address_city span3 required" placeholder="City">
-    <input name="address_state" id="address_state" type="text" size="5" autocomplete="off" class="address_state span1 required" placeholder="State">
-    <input name="address_zip" id="address_zip" type="text" size="5" autocomplete="off" class="address_zip span2 required" placeholder="ZIP Code">
+    <label class="span3">State</label>
+    <input name="address_state" id="address_state" type="text" size="5" autocomplete="off" class="address_state span3 required" placeholder="State">
+    <label class="span3">ZIP Code</label>
+    <input name="address_zip" id="address_zip" type="text" size="5" autocomplete="off" class="address_zip span3 required" placeholder="ZIP Code">
   </div>
   
   <div class="form-row">
-    <input name="address_country" id="address_country" type="text" size="10" autocomplete="off" class="address_country span2 required" placeholder="Country">
+    <label class="span3">Country</label>
+    <input name="address_country" id="address_country" type="text" size="10" autocomplete="off" class="address_country span3 required" placeholder="Country">
   </div>
   
   <br />
   
   <div class="form-row">
     <h3>Credit Card</h3>
+    <label class="span3">Card Number</label>
     <input type="text" size="20" autocomplete="off" class="card-number span3 stripe-sensitive required" placeholder="Card Number">
-    <input type="text" size="4" autocomplete="off" class="card-cvc span1 stripe-sensitive required" placeholder="CVC">
+    <label class="span3">CVC Code (3-4 digits)</label>
+    <input type="text" size="4" autocomplete="off" class="card-cvc span3 stripe-sensitive required" placeholder="CVC">
   </div>
   
   <div class="form-row">
-    <input type="text" size="2" autocomplete="off" class="card-expiry-month span1 stripe-sensitive required" placeholder="MM">
-    <input type="text" size="4" autocomplete="off" class="card-expiry-year span1 stripe-sensitive required" placeholder="YYYY">
+    <label class="span3">Expiration Month</label>
+    <input type="text" size="2" autocomplete="off" class="card-expiry-month span3 stripe-sensitive required" placeholder="MM">
+    <label class="span3">Expiration Year</label>
+    <input type="text" size="4" autocomplete="off" class="card-expiry-year span3 stripe-sensitive required" placeholder="YYYY">
   </div>
   
   <br />
   
   <div class="form-row">
-    <h3 class="pull-left">Total: <span class="total">$<%= dollarize(OFFER_PRICE) %> (USD)</span>&nbsp;&nbsp;</h3>
+    <h3 class="pull-left">Fee: <span class="total">$<%= dollarize(OFFER_PRICE) %> (USD)</span>&nbsp;&nbsp;</h3>
     <button type="submit" class="btn btn-primary submit-button pull-right"><i class="icon-ok icon-white"></i>&nbsp;Place Your Order</button>
     <span class="payment-errors"></span>
     <br />
   </div>
   
 </form>
+
+</div>
