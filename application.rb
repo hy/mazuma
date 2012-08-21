@@ -10,7 +10,6 @@ require 'rack/csrf'
 # Global application settings
 set :public_folder, Proc.new { File.join(root, "public") }
 set :views, File.dirname(__FILE__) + "/views"
-set :sessions, false
 set :static, true
 set :default_encoding, "UTF-8"
 set :locale, "en"
@@ -21,12 +20,12 @@ require './config/globals'
 
 # Rack configuration
 configure do
+  use Rack::SslEnforcer
   use Rack::Session::Cookie, :secret => "add some unique secret string here"
   use Rack::Csrf, :raise => true
-  use Rack::SslEnforcer
 end
 
-# XSS & CSRF Helpers
+# XSS & CSRF helpers, via http://stackoverflow.com/questions/11451161/sinatra-csrf-authenticity-tokens
 helpers do
   
   include Rack::Utils
