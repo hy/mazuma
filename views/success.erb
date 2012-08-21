@@ -15,7 +15,7 @@
 <%= h params[:company] %><br />
 <%= h @charge.card.address_line1 %><br />
 <%= h @charge.card.address_line2 %><br />
-<%= h params[:address_city] %>, <%= @charge.card.address_state %> <%= @charge.card.address_zip %>, <%= @charge.card.address_country %><br />
+<%= h params[:address_city] %>, <%= @charge.card.address_state %> <%= h @charge.card.address_zip %>, <%= @charge.card.address_country %><br />
 <%= h params[:phone] %><br />
 <%= h params[:email] %><br />
 </p>
