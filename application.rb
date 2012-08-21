@@ -5,6 +5,7 @@ require 'rest-client'
 require 'multimap'
 require 'stripe'
 require 'rack-ssl-enforcer'
+require 'rack/csrf'
 
 # Global application settings
 set :public_folder, Proc.new { File.join(root, "public") }
@@ -18,8 +19,25 @@ set :locale, "en"
 require './config/environments/' + settings.environment.to_s
 require './config/globals'
 
-# Force all connections to use SSL
-use Rack::SslEnforcer
+# Rack configuration
+configure do
+  use Rack::Session::Cookie, :secret => "add some unique secret string here"
+  use Rack::Csrf, :raise => true
+  use Rack::SslEnforcer
+end
+
+# CSRF Helpers
+helpers do
+  
+  def csrf_token
+    Rack::Csrf.csrf_token(env)
+  end
+  
+  def csrf_tag
+    Rack::Csrf.csrf_tag(env)
+  end
+  
+end
 
 # Require module files
 Dir['./modules/**/*.rb'].each { |f| require(f) }

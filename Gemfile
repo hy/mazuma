@@ -6,6 +6,7 @@ gem 'rest-client'
 gem 'multimap'
 gem 'stripe'
 gem 'rack-ssl-enforcer'
+gem 'rack_csrf'
 gem 'rake'
 
 group :development do
