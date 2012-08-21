@@ -26,8 +26,11 @@ configure do
   use Rack::SslEnforcer
 end
 
-# CSRF Helpers
+# XSS & CSRF Helpers
 helpers do
+  
+  include Rack::Utils
+  alias_method :h, :escape_html
   
   def csrf_token
     Rack::Csrf.csrf_token(env)

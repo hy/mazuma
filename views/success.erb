@@ -6,27 +6,27 @@
 
 <h2>Success! Your Order Has Been Placed.</h2>
 
-<p>You have successfully placed an order for <strong><%= OFFER_NAME %></strong>, via <%= URL %>.</p>
+<p>You have successfully placed an order for <strong><%= h OFFER_NAME %></strong>, via <%= h URL %>.</p>
 
 <h3>Billing Information:</h3>
 
 <p>
-<%= @charge.card.name %><br />
-<%= params[:company] %><br />
-<%= @charge.card.address_line1 %><br />
-<%= @charge.card.address_line2 %><br />
-<%= params[:address_city] %>, <%= @charge.card.address_state %> <%= @charge.card.address_zip %>, <%= @charge.card.address_country %><br />
-<%= params[:phone] %><br />
-<%= params[:email] %><br />
+<%= h @charge.card.name %><br />
+<%= h params[:company] %><br />
+<%= h @charge.card.address_line1 %><br />
+<%= h @charge.card.address_line2 %><br />
+<%= h params[:address_city] %>, <%= @charge.card.address_state %> <%= @charge.card.address_zip %>, <%= @charge.card.address_country %><br />
+<%= h params[:phone] %><br />
+<%= h params[:email] %><br />
 </p>
 
 <h3>Transaction Details:</strong></p></h3>
 
-<p>You have been charged <strong>$<%= dollarize(@charge.amount.to_s) %></strong> to your <strong><%= @charge.card.type %></strong> ending in <strong><%= @charge.card.last4 %></strong>.</p> 
+<p>You have been charged <strong>$<%= h dollarize(@charge.amount.to_s) %></strong> to your <strong><%= h @charge.card.type %></strong> ending in <strong><%= h @charge.card.last4 %></strong>.</p> 
 
-<p>The transaction ID is <strong><%= @charge.id %></strong>.</p>
+<p>The transaction ID is <strong><%= h @charge.id %></strong>.</p>
 
-<p>You will receive delivery instructions via email at <strong><%= params[:email] %>.</strong></p>
+<p>You will receive delivery instructions via email at <strong><%= h params[:email] %>.</strong></p>
 
 <p>Please print this receipt for your records.</p>
 
