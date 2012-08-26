@@ -60,7 +60,7 @@ end
 post '/order/?' do
   
   begin
-    Stripe.api_key = ENV['STRIPE_PRIVATE_KEY']
+    Stripe.api_key = ENV['STRIPE_SECRET_KEY']
     
     # Get the credit card details submitted by the form
     token = params[:stripeToken]

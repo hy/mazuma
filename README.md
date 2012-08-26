@@ -37,9 +37,9 @@ Once you've set up accounts at [Stripe](http://stripe.com) and [Mailgun](http://
 
 **Set Stripe.com Keys**
 
-    $ heroku config:add STRIPE_PUBLIC_KEY=t0psecretkey
+    $ heroku config:add STRIPE_SECRET_KEY=t0psecretkey
 
-    $ heroku config:add STRIPE_PRIVATE_KEY=t0psecretkey
+    $ heroku config:add STRIPE_PUBLISHABLE_KEY=publickey
 
 **Set Mailgun.net Keys**
 

@@ -6,7 +6,7 @@ require 'multimap'
 
 post '/stripe-receipt-mailer' do
   
-  Stripe.api_key = ENV['STRIPE_PRIVATE_KEY']
+  Stripe.api_key = ENV['STRIPE_SECRET_KEY']
   data = JSON.parse request.body.read, :symbolize_names => true
   p data
   

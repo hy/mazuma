@@ -1,5 +1,5 @@
 # Stripe public key
-STRIPE_PUBLIC_KEY = ENV['STRIPE_PUBLIC_KEY'] # Set via $ heroku config:add STRIPE_PUBLIC_KEY=publickey
+STRIPE_PUBLISHABLE_KEY = ENV['STRIPE_PUBLISHABLE_KEY'] # Set via $ heroku config:add STRIPE_PUBLISHABLE_KEY=publickey
 
 # Site template variables
 HEADLINE = "Title" # Appears at the top of all pages
