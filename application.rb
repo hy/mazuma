@@ -19,24 +19,18 @@ require './config/environments/' + settings.environment.to_s
 require './config/globals'
 
 # Rack configuration
-configure do
-  use Rack::SslEnforcer
-  use Rack::Session::Cookie, :secret => "add some unique secret string here"
-  use Rack::Csrf, :raise => true
-end
+use Rack::SslEnforcer
+use Rack::Session::Cookie, :secret => "add some unique secret string here", :expire_after => 3600 * 24 # One day, in seconds
+use Rack::Csrf, :raise => true
 
-# XSS & CSRF helpers, via http://stackoverflow.com/questions/11451161/sinatra-csrf-authenticity-tokens
+# XSS & CSRF helpers
 helpers do
   
   include Rack::Utils
   alias_method :h, :escape_html
   
-  def csrf_token
-    Rack::Csrf.csrf_token(env)
-  end
-  
   def csrf_tag
-    Rack::Csrf.csrf_tag(env)
+    Rack::Csrf.tag(env)
   end
   
 end
