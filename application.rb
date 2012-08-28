@@ -21,7 +21,7 @@ require './config/globals'
 # Rack configuration
 use Rack::SslEnforcer
 use Rack::Session::Cookie, :secret => "add some unique secret string here", :expire_after => 3600 * 24 # One day, in seconds
-use Rack::Csrf, :raise => true
+use Rack::Csrf, :raise => true, :skip => ['POST:/stripe-receipt-mailer', 'POST:^.*https\:\/\/api[:](.*)$']
 
 # XSS & CSRF helpers
 helpers do
