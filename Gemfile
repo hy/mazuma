@@ -7,7 +7,6 @@ gem 'multimap'
 gem 'stripe'
 gem 'rack'
 gem 'rack-ssl-enforcer'
-gem 'rack_csrf'
 gem 'rake'
 
 group :development do

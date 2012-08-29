@@ -6,6 +6,8 @@ require 'multimap'
 
 post '/stripe-receipt-mailer' do
   
+  begin
+  
   Stripe.api_key = ENV['STRIPE_SECRET_KEY']
   data = JSON.parse request.body.read, :symbolize_names => true
   p data
@@ -19,6 +21,10 @@ post '/stripe-receipt-mailer' do
   if event.type == "charge.succeeded" && event.data.object.description == "#{OFFER_NAME}"
     email_charge_receipt(event.data.object)
     add_subscriber(event.data.object)
+  end
+  
+  rescue Stripe::InvalidRequestError
+      halt 200, 'Webhook halted, invalid request.'
   end
   
 end

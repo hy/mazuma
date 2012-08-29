@@ -5,7 +5,6 @@ require 'rest-client'
 require 'multimap'
 require 'stripe'
 require 'rack-ssl-enforcer'
-require 'rack/csrf'
 
 # Global application settings
 set :public_folder, Proc.new { File.join(root, "public") }
@@ -20,19 +19,11 @@ require './config/globals'
 
 # Rack configuration
 use Rack::SslEnforcer
-use Rack::Session::Cookie, :secret => "add some unique secret string here", :expire_after => 3600 * 24 # One day, in seconds
-use Rack::Csrf, :raise => true, :skip => ['POST:/stripe-receipt-mailer', 'POST:^.*https\:\/\/api[:](.*)$']
 
-# XSS & CSRF helpers
+# Security helpers
 helpers do
-  
   include Rack::Utils
   alias_method :h, :escape_html
-  
-  def csrf_tag
-    Rack::Csrf.tag(env)
-  end
-  
 end
 
 # Require module files
