@@ -100,66 +100,66 @@
   
 	<%= csrf_tag %>
 	
-  <div class="form-row">
+  <div class="form-group">
     <h3>Contact Information</h3>
-    <label class="col-md-3">Your Name (First and Last)</label>
-    <input name="name" id="name" type="text" size="20" autocomplete="off" class="name col-md-3 required" placeholder="Your Name (First and Last)">
-    <label class="col-md-3">Company</label>
-    <input name="company" id="company" type="text" size="20" autocomplete="off" class="company col-md-3" placeholder="Company">
+    <label class="col-md-4">Your Name (First and Last)</label>
+    <input name="name" id="name" type="text" size="20" autocomplete="off" class="name col-md-4 required" placeholder="Your Name (First and Last)">
+    <label class="col-md-4">Company</label>
+    <input name="company" id="company" type="text" size="20" autocomplete="off" class="company col-md-4" placeholder="Company">
   </div>
   
-  <div class="form-row">
-    <label class="col-md-3">Email</label>
-    <input name="email" id="email" type="text" size="20" autocomplete="off" class="email col-md-3 required" placeholder="Email">
-    <label class="col-md-3">Phone</label>
-    <input name="phone" id="phone" type="text" size="20" autocomplete="off" class="phone col-md-3 required" placeholder="Phone">
+  <div class="form-group">
+    <label class="col-md-4">Email</label>
+    <input name="email" id="email" type="text" size="20" autocomplete="off" class="email col-md-4 required" placeholder="Email">
+    <label class="col-md-4">Phone</label>
+    <input name="phone" id="phone" type="text" size="20" autocomplete="off" class="phone col-md-4 required" placeholder="Phone">
     <div id="did-you-mean"><a></a></div>
   </div>
   
   <br />
   
-  <div class="form-row">
+  <div class="form-group">
     <h3>Billing Address</h3>
-    <label class="col-md-3">Address (line 1)</label>
-    <input name="address_line1" id="address_line1" type="text" size="20" autocomplete="off" class="address_line1 col-md-3 required" placeholder="Address 1">
-    <label class="col-md-3">Address (line 2)</label>
-    <input name="address_line2" id="address_line2"type="text" size="20" autocomplete="off" class="address_line2 col-md-3" placeholder="Address 2">
+    <label class="col-md-4">Address (line 1)</label>
+    <input name="address_line1" id="address_line1" type="text" size="20" autocomplete="off" class="address_line1 col-md-4 required" placeholder="Address 1">
+    <label class="col-md-4">Address (line 2)</label>
+    <input name="address_line2" id="address_line2"type="text" size="20" autocomplete="off" class="address_line2 col-md-4" placeholder="Address 2">
   </div>
   
-  <div class="form-row">
-    <label class="col-md-3">City</label>
-    <input name="address_city" id="address_city" type="text" size="20" autocomplete="off" class="address_city col-md-3 required" placeholder="City">
-    <label class="col-md-3">State</label>
-    <input name="address_state" id="address_state" type="text" size="5" autocomplete="off" class="address_state col-md-3 required" placeholder="State">
-    <label class="col-md-3">ZIP Code</label>
-    <input name="address_zip" id="address_zip" type="text" size="5" autocomplete="off" class="address_zip col-md-3 required" placeholder="ZIP Code">
+  <div class="form-group">
+    <label class="col-md-4">City</label>
+    <input name="address_city" id="address_city" type="text" size="20" autocomplete="off" class="address_city col-md-4 required" placeholder="City">
+    <label class="col-md-4">State</label>
+    <input name="address_state" id="address_state" type="text" size="5" autocomplete="off" class="address_state col-md-4 required" placeholder="State">
+    <label class="col-md-4">ZIP Code</label>
+    <input name="address_zip" id="address_zip" type="text" size="5" autocomplete="off" class="address_zip col-md-4 required" placeholder="ZIP Code">
   </div>
   
-  <div class="form-row">
-    <label class="col-md-3">Country</label>
-    <input name="address_country" id="address_country" type="text" size="10" autocomplete="off" class="address_country col-md-3 required" placeholder="Country">
+  <div class="form-group">
+    <label class="col-md-4">Country</label>
+    <input name="address_country" id="address_country" type="text" size="10" autocomplete="off" class="address_country col-md-4 required" placeholder="Country">
   </div>
   
   <br />
   
-  <div class="form-row">
+  <div class="form-group">
     <h3>Credit Card</h3>
-    <label class="col-md-3">Card Number</label>
-    <input type="text" size="20" autocomplete="off" class="card-number col-md-3 stripe-sensitive required" placeholder="Card Number">
-    <label class="col-md-3">CVC Code (3-4 digits)</label>
-    <input type="text" size="4" autocomplete="off" class="card-cvc col-md-3 stripe-sensitive required" placeholder="CVC">
+    <label class="col-md-4">Card Number</label>
+    <input type="text" size="20" autocomplete="off" class="card-number col-md-4 stripe-sensitive required" placeholder="Card Number">
+    <label class="col-md-4">CVC Code (3-4 digits)</label>
+    <input type="text" size="4" autocomplete="off" class="card-cvc col-md-4 stripe-sensitive required" placeholder="CVC">
   </div>
   
-  <div class="form-row">
-    <label class="col-md-3">Expiration Month</label>
-    <input type="text" size="2" autocomplete="off" class="card-expiry-month col-md-3 stripe-sensitive required" placeholder="MM">
-    <label class="col-md-3">Expiration Year</label>
-    <input type="text" size="4" autocomplete="off" class="card-expiry-year col-md-3 stripe-sensitive required" placeholder="YYYY">
+  <div class="form-group">
+    <label class="col-md-4">Expiration Month</label>
+    <input type="text" size="2" autocomplete="off" class="card-expiry-month col-md-4 stripe-sensitive required" placeholder="MM">
+    <label class="col-md-4">Expiration Year</label>
+    <input type="text" size="4" autocomplete="off" class="card-expiry-year col-md-4 stripe-sensitive required" placeholder="YYYY">
   </div>
   
   <br />
   
-  <div class="form-row">
+  <div class="form-group">
     <h3 class="pull-left">Fee: <span class="total">$<%= dollarize(OFFER_PRICE) %> (USD)</span>&nbsp;&nbsp;</h3>
     <button type="submit" class="btn btn-primary submit-button pull-right"><i class="icon-ok icon-white"></i>&nbsp;Place Your Order</button>
     <span class="payment-errors"></span>
