@@ -9,6 +9,7 @@ gem 'stripe'
 gem 'rack'
 gem 'rack-ssl-enforcer'
 gem 'rake'
+gem 'rack_csrf'
 
 group :development do
   gem 'foreman'
