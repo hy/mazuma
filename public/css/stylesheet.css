@@ -118,3 +118,7 @@ h2.byline {
 	font-size:14px;
 	color: #cc0000;
 }
+
+.well {
+	padding: 15px;
+}
