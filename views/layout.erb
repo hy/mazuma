@@ -7,18 +7,20 @@
   <meta name="keywords" content="<%= SITE_KEYWORDS %>" />
   <meta name="author" content="<%= ADMIN_NAME %>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
   <link href="/css/stylesheet.css" rel="stylesheet" />
   <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700|Vollkorn:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>  
   <div class="container">
-    <div class="content span12"><!-- Change to span8 offset1 for single column layout -->
+    <div class="content col-md-12"><!-- Change to col-md-8 col-md-offset-1 for single column layout -->
       <div class="row">
         
         <!-- Main -->
-        <div id="main" class="span8">
+        <div id="main" class="col-md-8">
           <h1 class="headline"><a href="<%= URL %>"><%= HEADLINE %></a></h1>
           <h2 class="byline"><%= BYLINE %></h2>
           <%= yield %>
@@ -32,7 +34,7 @@
         </div>
         
         <!-- Sidebar -->
-        <div id="sidebar" class="span3"><!-- Remove for single column layout -->
+        <div id="sidebar" class="col-md-4"><!-- Remove for single column layout -->
           <h2>Sidebar</h2>
           <br />
           <p><strong>This is boilerplate text.</strong> You should remove this text and replace it with something else. You might include an image, a video, a description, a list of benefits, or a call to action. The possibilities are endless. The only limit... is yourself.</p>

@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'puma'
 gem 'sinatra'
 gem 'json'
 gem 'rest-client'
@@ -17,4 +18,5 @@ group :development do
   gem 'rest-client'
   gem 'multimap'
   gem 'stripe'
+  gem 'better_errors'
 end

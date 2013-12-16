@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'puma'
 require 'sinatra'
 require 'json'
 require 'rest-client'
@@ -18,7 +19,7 @@ require './config/environments/' + settings.environment.to_s
 require './config/globals'
 
 # Rack configuration
-use Rack::SslEnforcer
+# use Rack::SslEnforcer # enable in production
 
 # Security helpers
 helpers do

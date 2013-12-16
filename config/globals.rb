@@ -18,5 +18,5 @@ OFFER_PRICE = "1000" # in cents, required by Stripe
 
 # Mailgun settings
 MAILGUN_API = ENV['MAILGUN_PRIVATE_KEY'] # Set via $ heroku config:add MAILGUN_PRIVATE_KEY=t0psecret
-MAILGUN_DOMAIN = "domain.mailgun.org" # Your Mailgun subdomain
+MAILGUN_DOMAIN = "domain.mailgun.org" # Your Mailgun domain
 MAILGUN_LIST = "testing" # Your Mailgun mailing list name
