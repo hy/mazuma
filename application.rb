@@ -21,6 +21,25 @@ require './config/globals'
 # Rack configuration
 # use Rack::SslEnforcer # enable in production
 
+### Secure Cookies
+use Rack::Session::Cookie, { :http_only => true, :secure => true, :expire_after => 14400 }
+
+### CSRF
+configure do
+  use Rack::Session::Cookie, { :secret => "CHANGEMEYOUFOOL" }
+  use Rack::Csrf, :raise => true, :skip => ['']
+end
+
+helpers do
+  def csrf_token
+    Rack::Csrf.csrf_token(env)
+  end
+
+  def csrf_tag
+    Rack::Csrf.csrf_tag(env)
+  end
+end
+
 # Security helpers
 helpers do
   include Rack::Utils
