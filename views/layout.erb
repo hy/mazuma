@@ -16,14 +16,15 @@
 
 <body>  
   <div class="container">
-    <div class="content"><!-- Change to col-md-8 col-md-offset-1 for single column layout -->
+    <div class="content col-md-12"><!-- Change to col-md-8 col-md-offset-1 for single column layout -->
       <div class="row">
         
         <!-- Main -->
         <div id="main" class="col-md-8">
           <h1 class="headline"><a href="<%= URL %>"><%= HEADLINE %></a></h1>
           <h2 class="byline"><%= BYLINE %></h2>
-          <%= yield %>
+          
+					<%= yield %>
         
           <hr>
 
