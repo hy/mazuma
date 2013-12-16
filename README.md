@@ -1,8 +1,6 @@
 Mazuma - a sales app built on Heroku, Stripe, and Mailgun
 =========================================================
 
-![Mazuma Screenshot](http://media.eurekaoverdrive.com/img/mazuma.png)
-
 **Mazuma is a simple sales application written in Ruby.** It uses [Sinatra](http://www.sinatrarb.com/) and [ERB](http://ruby-doc.org/stdlib-1.9.3/libdoc/erb/rdoc/ERB.html) templates to produce an attractive two-column web application suitable for selling a product, service, or subscription online. The application is capable of delivering a file download link on a successful transaction and/or sending the file as an email attachment.
 
 Mazuma is designed for easy deployment to [Heroku's](http://heroku.com). [Stripe](http://stripe.com) is used to charge the user's credit card, and [Mailgun](http://mailgun.net) is used to send the user a receipt for successful transactions, as well as send all purchasers update emails via a simple command line interface. [Mailcheck.js](https://github.com/Kicksend/mailcheck) automatically catches common email typos.
