@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'puma'
 require 'sinatra'
+require 'rack/csrf'
 require 'json'
 require 'rest-client'
 require 'multimap'
